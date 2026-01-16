@@ -11,4 +11,16 @@
             </row>
         </col>
     </ui>
+    <ui id="Show">
+        <col>
+            <row class="mb-2">
+                <input name="ConditionnalShowInUIMode" />
+            </row>
+            <row>
+                <show property="ConditionnalShowInUIMode" domain="ConditionalShowDomain" style="width: 100%;">
+                    <input name="ConditionnalField" />
+                </show>
+            </row>
+        </col>
+    </ui>
 </layouts>
