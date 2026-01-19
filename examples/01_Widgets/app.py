@@ -3,6 +3,13 @@ from trame.app import get_server
 from trame.widgets import simput, html
 
 from trame_simput import get_simput_manager
+from trame_simput.core.domains import PropertyDomain, register_property_domain
+
+
+class ConditionalShowDomain(PropertyDomain):
+    def available(self):
+        return [{"text": "A", "value": "A"}, {"text": "B", "value": "B"}]
+
 
 client_type = "vue3"
 use_client2 = client_type == "vue2"
@@ -28,6 +35,7 @@ state, ctrl = server.state, server.controller
 DEF_DIR = Path(__file__).with_name("definitions")
 
 simput_manager = get_simput_manager()
+register_property_domain("ConditionalShowDomain", ConditionalShowDomain)
 
 # -----------------------------------------------------------------------------
 # Application state

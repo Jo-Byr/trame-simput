@@ -406,3 +406,15 @@ Slider:
       - type: UI
         properties:
           sizeControl: true
+
+Show:
+  ConditionnalShowInUIMode:
+    _label: Show second TextField if 'A' or 'B' is typed here
+    type: string
+    domains:
+      - type: ConditionalShowDomain
+        name: ConditionalShowDomain
+
+  ConditionnalField:
+    _label: Conditionnal show (in UI mode only)
+    type: string

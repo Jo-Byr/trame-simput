@@ -17,15 +17,18 @@ export default {
     const properties = inject("properties");
     const domains = inject("domains");
 
-    const visible = computed(() => {
+    const isVisible = function isVisible() {
       this.mtime; // eslint-disable-line
       const domain = domains()?.[props.property]?.[props.domain];
+      const propertyValue = properties()?.[props.property];
       if (!domain) {
         // no domain == valid
         return true;
       }
-      return domain.value.value;
-    });
+      return domain.available.map((v) => v.value).includes(propertyValue);
+    }
+
+    const visible = computed(isVisible);
 
     return {
       visible,
